@@ -6,7 +6,7 @@
 const largestUniqueSet = (paragraph) => {
   const totalChars = paragraph.split("").length;
 
-  return Object.entries(paragraph.split("").reduce((acc, char) => {
+  return Object.entries(paragraph.toLowerCase().split("").reduce((acc, char) => {
     acc[char] = (acc[char] || 1) + 1
     return acc
   }, {})).map((characterCount) => {
@@ -27,7 +27,7 @@ const largestUniqueSet = (paragraph) => {
   }, []).map(removedChars => removedChars.character);
 }
 
-const sampleText = "As an early member of Anchor’s Android team, you’ll play a critical role in helping us define the future of audio. We firmly believe that there is endless innovation just waiting to happen in the audio space. You’ll get to work alongside a cross-functional team of engineering, product, content, and community team members. This is a unique opportunity to be one of the very first hires for a consumer-facing and product-driven company that’s backed by some of the best investors in Silicon Valley and NY. This is a full-time role based in New York City."
+const sampleText = "If you want to jumpstart the process of talking to us about this role, here’s a little challenge: write a program that outputs the largest unique set of characters that can be removed from this paragraph without letting its length drop below 50."
 
 console.log("SAMPLE TEXT")
 console.log("-------------------")
@@ -35,7 +35,7 @@ console.log(sampleText)
 
 console.log("REMOVING")
 console.log("-------------------")
-const removedChars = largestUniqueSet(sampleText)
+const removedChars = largestUniqueSet(sampleText).sort()
 console.log(removedChars)
 
 const removeCharsFromText = (text, removedChars) => {

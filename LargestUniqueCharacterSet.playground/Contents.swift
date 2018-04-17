@@ -1,7 +1,5 @@
 //: Playground - noun: a place where people can play
 
-import UIKit
-
 let sampleText = "If you want to jumpstart the process of talking to us about this role, here’s a little challenge: write a program that outputs the largest unique set of characters that can be removed from this paragraph without letting its length drop below 50."
 
 func largestRemovableUniqueSet(_ text: String) -> [Character] {
@@ -31,13 +29,8 @@ func largestRemovableUniqueSet(_ text: String) -> [Character] {
     return removedCharacters
 }
 
-let removedCharacters = largestRemovableUniqueSet(sampleText)
+let removedCharacters = largestRemovableUniqueSet(sampleText).sorted()
 print("largest set of unique characters we can remove: \(removedCharacters)")
 print("removed \(removedCharacters.count) characters")
-var remainingText = sampleText
-for char in removedCharacters {
-    remainingText = remainingText.replacingOccurrences(of: String(char), with: "")
-}
-print("remaining text: \(remainingText)")
 
 
